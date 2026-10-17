@@ -1,0 +1,29 @@
+name: ci
+
+on:
+  push:
+    branches: [main, "feature/**"]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install tooling
+        run: pip install pytest ruff
+      - name: Lint
+        run: ruff check .
+      - name: Baseline compiles
+        run: python -m py_compile baseline/ambar.py
+      - name: Tests (each version in isolation)
+        run: |
+          for v in version_a version_b; do
+            if [ -d "$v/tests" ]; then python -m pytest "$v/tests" -q; fi
+          done
