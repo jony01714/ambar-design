@@ -81,3 +81,16 @@ a3bb978 Jonathan Israel Gonzalez Ruiz 2026-10-16 feat(b): add conversation skill
 48f8725 Jonathan Israel Gonzalez Ruiz 2026-10-16 feat(b): add device and tool registries and ports
 82b244f Jonathan Israel Gonzalez Ruiz 2026-10-16 feat(b): add event types and event bus
 ```
+
+## CI and access
+
+- **CI run (main @ `3c8d3c0`):** https://github.com/jony01714/ambar-design/actions/runs/38986044493
+- **Conclusion:** `success` (workflow `ci`, matrix Python 3.11 and 3.12, both jobs passed)
+- **Instructor invitation:** not sent (skipped at delivery time)
+- **Images:**
+  - [Commit graph](evidence/commit-graph.png)
+  - [CI result](evidence/ci-result.png)
+
+![Commit graph](evidence/commit-graph.png)
+
+![CI result](evidence/ci-result.png)
